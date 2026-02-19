@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         deckSelect.appendChild(option);
     });
 
+    // Set default to "Basic Treble Clef"
+    deckSelect.value = 'basic';
+
     // Load initial deck
     await loadDeckFromId(deckSelect.value);
 
