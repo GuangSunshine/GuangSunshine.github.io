@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --bg-gradient: linear-gradient(135deg, #1e1e2f, #2a2a40);
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --accent-color: #ff6b6b;
+    --highlight-color: #4ecdc4;
+    --button-bg: rgba(255, 255, 255, 0.2);
+    --button-hover: rgba(255, 255, 255, 0.3);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.controls {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 150px;
+}
+
+label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+select,
+button {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+select {
+    background: var(--button-bg);
+    color: white;
+}
+
+select:focus {
+    outline: 2px solid var(--highlight-color);
+}
+
+select option {
+    background-color: #2a2a40;
+    /* Dark background to contrast with white text */
+    color: white;
+}
+
+button#reset-score {
+    background: #6c757d;
+    /* Gray color */
+    color: white;
+    font-weight: 600;
+    margin-left: 0;
+    position: absolute;
+    /* Right align strictly */
+    right: 0;
+}
+
+button#reset-score:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.4);
+}
+
+.game-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.score-board {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* For absolute button positioning */
+    justify-content: center;
+    /* Center the score text */
+    width: 100%;
+}
+
+#osmd-container {
+    width: 100%;
+    background: #d8d8d8;
+    border-radius: 8px;
+    padding: 1rem;
+    min-height: 200px;
+    box-shadow: var(--shadow);
+    color: black;
+    display: flex;
+    justify-content: center;
+    /* Center the inner SVG */
+    align-items: center;
+}
+
+#osmd-canvas {
+    width: 320px;
+}
+
+/* Ensure SVG behaves for centering if not 100% width */
+#osmd-container svg {
+    display: block;
+    margin: 0 auto;
+}
+
+.answer-area {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+}
+
+.accidentals {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.accidental-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--button-bg);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 50%;
+}
+
+.accidental-btn.selected {
+    background: var(--highlight-color);
+    box-shadow: 0 0 10px var(--highlight-color);
+}
+
+.note-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.note-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: var(--button-bg);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.note-btn:hover {
+    background: var(--button-hover);
+    transform: scale(1.05);
+}
+
+.note-btn:active {
+    transform: scale(0.95);
+}
+
+.feedback {
+    height: 1.5rem;
+    /* prevent layout shift */
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.instruction-hint {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.correct {
+    color: #4ecdc4;
+}
+
+.incorrect {
+    color: #ff6b6b;
+}
+
+@media (max-width: 600px) {
+    .note-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}

@@ -1,7 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name That Note</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- OpenSheetMusicDisplay CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@1.8.8/build/opensheetmusicdisplay.min.js"></script>
+</head>
+
 <body>
-<iframe src="https://freesecure.timeanddate.com/clock/i7m2snme/n64/fs384/tct/pct/ftb/th1/ts1" 
-frameborder="0" width="1024" height="758"></iframe>
+    <div class="container">
+        <h1>Name That Note</h1>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="deck-select">Deck:</label>
+                <select id="deck-select">
+                    <!-- Options populated by JS -->
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="timer-select">Time Limit:</label>
+                <select id="timer-select">
+                    <option value="0">No Limit</option>
+                    <option value="5">5 Seconds</option>
+                    <option value="10">10 Seconds</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="game-area">
+            <div class="score-board">
+                Score: <span id="score">0</span>
+                <button id="reset-score">Reset Score</button>
+            </div>
+            <div class="timer-display" id="timer-display"></div>
+
+            <div id="osmd-container">
+                <div id="osmd-canvas"></div>
+            </div>
+
+            <div class="feedback" id="feedback"></div>
+
+            <p class="instruction-hint">Select accidental first, then the note name.</p>
+
+            <div class="answer-area">
+                <div class="accidentals">
+                    <button class="accidental-btn" data-accidental="b">♭</button>
+                    <button class="accidental-btn selected" data-accidental="">♮</button>
+                    <button class="accidental-btn" data-accidental="#">♯</button>
+                </div>
+                <div class="note-buttons">
+                    <button class="note-btn" data-note="C">C</button>
+                    <button class="note-btn" data-note="D">D</button>
+                    <button class="note-btn" data-note="E">E</button>
+                    <button class="note-btn" data-note="F">F</button>
+                    <button class="note-btn" data-note="G">G</button>
+                    <button class="note-btn" data-note="A">A</button>
+                    <button class="note-btn" data-note="B">B</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
